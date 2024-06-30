@@ -16,13 +16,11 @@ namespace RobotServ
         {
             XData theData = new XData();
 
-            // ClassTTS.SayIt(Server.MapPath("TTS"), "This match will be between Sneaky Creep, Cheap Dog, Funny Man, and John. The prize is $300");
-            Response.Clear();
+             Response.Clear();
             try
             {
                 xActionRequest anAction = new xActionRequest();
-                //string userID = Request.Form["clientID"];
-                try
+                 try
                 {
                     byte[] byteData = new byte[Request.Files["xActionRequest"].ContentLength];
                     Request.Files["xActionRequest"].InputStream.Read(byteData, 0, byteData.Length);
@@ -139,7 +137,6 @@ namespace RobotServ
                         case xActionRequest.xAction.AddFundsSteamWallet:
                             {
                                 SteamPay(currentContext, robotDB.GetPlayerFromDB(currentContext, anAction.AddFundsSteamWallet.Email, anAction.AddFundsSteamWallet.Passowrd, anAction.SteamUserID), anAction.PlatformType, anAction.SteamTicket, anAction.SteamUserID, anAction.AddFundsSteamWallet.UsdAmount);
-                                // theData.AddFundsSteamWallet = robotDB.AddSteamWalletFunds(currentContext, anAction.AddFundsSteamWallet, anAction.SteamUserID);
                                 theData.CurrentPlayerFunds = robotDB.GetPlayerFunds(currentContext, anAction.AddFundsSteamWallet.Email, anAction.AddFundsSteamWallet.Passowrd, anAction.SteamUserID);
 
                                 break;
@@ -158,8 +155,7 @@ namespace RobotServ
                                     {
                                         aRecord.WasSuccess = true;
                                         aRecord.IsComplete = true;
-                                        // Player aPlayer = currentContext.Players.FirstOrDefault(x => x.ID == aRecord.ID_Player);
-                                        aPlayer.Money += aRecord.USDAmount * roiValue2;
+                                         aPlayer.Money += aRecord.USDAmount * roiValue2;
 
                                         GameFinancialRow aFinanceStat = new GameFinancialRow();
                                         aFinanceStat.EventDate = System.DateTime.UtcNow;
@@ -175,13 +171,10 @@ namespace RobotServ
 
 
                                         currentContext.SubmitChanges();
-                                        //aPlayer.Money=
-                                    }
+                                      }
 
                                 }
-                                //  SteamPay(currentContext, robotDB.GetPlayerFromDB(currentContext, anAction.AddFundsSteamWallet.Email, anAction.AddFundsSteamWallet.Passowrd, anAction.SteamUserID), anAction.PlatformType, anAction.SteamTicket, anAction.SteamUserID, anAction.AddFundsSteamWallet.UsdAmount);
-                                // theData.AddFundsSteamWallet = robotDB.AddSteamWalletFunds(currentContext, anAction.AddFundsSteamWallet, anAction.SteamUserID);
-                                theData.CurrentPlayerFunds = robotDB.GetPlayerFunds(currentContext, anAction.AddFundsSteamWalletChoice.Email, anAction.AddFundsSteamWalletChoice.Passowrd, anAction.SteamUserID);
+                                 theData.CurrentPlayerFunds = robotDB.GetPlayerFunds(currentContext, anAction.AddFundsSteamWalletChoice.Email, anAction.AddFundsSteamWalletChoice.Passowrd, anAction.SteamUserID);
 
                                 break;
                             }
@@ -195,13 +188,6 @@ namespace RobotServ
                     theData.RoI = roiValue;
 
                     string ret = XData.SerializeToText(theData);
-
-
-                    //Response.Headers.Add("Access-Control-Allow-Credentials", "true");
-                    //Response.Headers.Add("Access-Control-Allow-Headers", "Accept, X-Access-Token, X-Application-Name, X-Request-Sent-Time");
-                    //Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-                    //Response.Headers.Add("Access-Control-Allow-Origin", "*");
-
 
                     Response.Write(ret);
                 }
@@ -243,59 +229,22 @@ namespace RobotServ
         private bool SteamPayUserConfirmation(string userID, string steamTicket, ulong orderID, ulong result)
         {
             bool isOK = false;
-            //  if (result == 1)
-            {
+              {
                 using (WebClient wc = new WebClient())
                 {
 
-                    //var json = wc.DownloadString("https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v1/?key=4AAE3948E90F96C3EEEC40E904FD97BB&ticket=14000000BA8E5C0C96BD396425937F03010010018E00E5591800000001000000020000004C3858C52001A8C04F2B08010A000000B2000000320000000400000025937F030100100182130B004C3858C52001A8C000000000D7C1E4595771005A0100EA3903000000000033639BF8CD5218905BE524EB74BDD1D821DCEAF6E0791DD70145E7AD4A4560171ED256DBC687A08728B8D949EBCD3433198B8031E4E973178910565FF95839D43B2AF21FACEACC112E3629B0821A931ACED8B6F6DF0E1FAACADD15D21ADC47F8A219D5760EE5642293A0924DCEBE83B8C27A51DFE667BC9040E3D151F49B3B015C84DE01242262B8748F043EB0FD329DC870757ECACDF28B166C514C2BB5A8CCB85384C90365397BFA2F7E9B4BCA2841762E435BB6BFC206102B055A0B2B12EE9366FB1797A54693630D6C0FD6A6AA29AFC0ABB53006DEBFA24A50C8102EBB8AB450E0D91A1221F6B131BC0DC940CCB86EC973654FECCAA7BBDA7C3541B8C977A4BFFD8FE5ACA57C165E62280D8B7C95F745A7811D9DE061C07FCFD37218F74BDF8AF8C99DCC83F6B96BA7EC7DD97D180A3729C4D955F50BB8CBFD31F6AAA92B86187E30AF112A380AB9107DECD265E9DA984402241F5D8C62997D06C4B2018BCA13DE75EFA9737291CEA649573A070C024D45F7E74E68861987EDCB6C0A07DC163C8C3AC92B36825ED95C1F326EE4A20E10CFD2CC0D297360ACD12CEA48BE8DCC0160B172EDD00CC4A3F1F1F582DDF5CFDCFE95B4102F2039C8AE40C86B43E23969BC7F06136377256C860D45FB56BEAA61356DEF09F412DB5999008D3A15FB33DE6EEAA1917C37071131E9C64324C9294771E287799274E6ED659D084C208551C212640862AD7E6A2FCC04C3A177B35AD88906D5B885A0476CFE9EEA747274E92943FC4B911CE5F72C247224E559C2387BF11755E52A536BA89C88974CF184D48EA2E9340796CDBFF1B8D5DA7F48B475E21CC94C273A5601920522786327C2B7C1F7A1320E31E122F78E418939AC3CD4D84486CAB485DE4061FD456C146D8CD8273B1D38547A41FDE1D107B9C284DC8CA08244C3A72CF97909D4B1A72E904927A2F20E4120D246F816E66AFB85D0BC723B6617F15BA88B13EBE17BE976D69FAEAFD5F7EB898DE05C8CE710C8847A0C361C39EB0B7338CE37B9CAFCFA4181C930E9855D44B2B9042B626B4E1CDAD8F68E5E17443DF31D7ECABA960C976F42E8FB1C4D80B6635FA4CE0514E01A9233C8B12B4E9A799509C6943E5543F4F0E2282DFAC0658DAE3CB2BAA7342CA9C468CB7B736D0624BB83FBC647A1D1FD4D6040A3A6ABA4148FC6CEAD263DA4DC765FB384D567A2396777227B3CDD204E2626477F754C67BA2BE4AD4473CD90CF9A1CB29754650000000000000000000000000000000000000000000000000000000000000000000000&appid=725890");
-                    //var json = wc.DownloadString("https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v1/?key=4AAE3948E90F96C3EEEC40E904FD97BB&ticket=" + steamTicket + "&appid=725890");
-                    //var json = wc.DownloadString("https://api.steampowered.com/ISteamMicroTxn/FinalizeTxn/v2/?key=4AAE3948E90F96C3EEEC40E904FD97BB&ticket=" + steamTicket + "&appid=725890&ordierid=" + orderID);
-                    //var json = wc.DownloadString("https://partner.steam-api.com/ISteamMicroTxn/FinalizeTxn/v2/key=4AAE3948E90F96C3EEEC40E904FD97BB&ticket=" + steamTicket + "&appid=725890&ordierid=" + orderID);
-
-
-
-                    //json = json.Replace("params", "params1");
-                    //json = json.Replace("\t", " ");
-                    //json = json.Replace("  ", " ");
-
                     var reqparm = new System.Collections.Specialized.NameValueCollection();
-                    reqparm.Add("key", "4AAE3948E90F96C3EEEC40E904FD97BB");
+                    reqparm.Add("key", "[removed]");
                     reqparm.Add("orderid", orderID.ToString());
-                    // reqparm.Add("steamid", userID);
-                    //  reqparm.Add("itemcount", "1");
-                    reqparm.Add("appid", "725890");
-                    //   reqparm.Add("language", "en");
-                    //   reqparm.Add("currency", "USD");
-                    // reqparm.Add("itemid[0]", "4");
-                    //   reqparm.Add("qty[0]", USDAmount.ToString("f0"));
-                    //   reqparm.Add("amount[0]", (USDAmount * 100).ToString("f0"));
-                    //    reqparm.Add("description[0]", "Adding $" + gameCredits.ToString("f2") + " In-Game Funds");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param2", "escaping is already handled");
+                      reqparm.Add("appid", "[removed]");
+                   
                     byte[] responsebytes = wc.UploadValues("https://partner.steam-api.com/ISteamMicroTxn/FinalizeTxn/v2/", "POST", reqparm);
 
                  string json=   System.Text.Encoding.UTF8.GetString(responsebytes);
 
-                    //  Newtonsoft.Json.JsonConvert.
-                    // response account = JsonConvert.DeserializeObject<response>(json);
-
+                    
                     isOK = json.ToLower().Replace(" ", "").Contains("\"result\":\"ok\"");
-                    //if (isOK)
-                    //{
-                    //    if (json.ToLower().Contains(userID))
-                    //    {
-                    //        isOK = true;
-                    //    }
-                    //    else
-                    //    {
-                    //        isOK = false;
-                    //    }
-                    //}
+                   
                 }
             }
             return isOK;
@@ -354,51 +303,24 @@ namespace RobotServ
                     cc.SteamWalletPaymentRecords.InsertOnSubmit(aRecord);
                     cc.SubmitChanges();
                     var reqparm = new System.Collections.Specialized.NameValueCollection();
-                    reqparm.Add("key", "4AAE3948E90F96C3EEEC40E904FD97BB");
+                    reqparm.Add("key", "[removed]");
                     reqparm.Add("orderid", aRecord.ID.ToString());
                     reqparm.Add("steamid", userID);
                     reqparm.Add("itemcount", "1");
-                    reqparm.Add("appid", "725890");
+                    reqparm.Add("appid", "[removed]");
                     reqparm.Add("language", "en");
                     reqparm.Add("currency", "USD");
                     reqparm.Add("itemid[0]", "4");
                     reqparm.Add("qty[0]", USDAmount.ToString("f0"));
                     reqparm.Add("amount[0]", (USDAmount * 100).ToString("f0"));
                     reqparm.Add("description[0]", "Adding $" + gameCredits.ToString("f2") + " In-Game Funds");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param1", "<any> kinds & of = ? strings");
-                    //reqparm.Add("param2", "escaping is already handled");
                     byte[] responsebytes = wc.UploadValues("https://partner.steam-api.com/ISteamMicroTxn/InitTxn/v3/", "POST", reqparm);
                     string responsebody = System.Text.Encoding.UTF8.GetString(responsebytes);
                     int xxx = 0;
-                    // https://partner.steam-api.com/ISteamMicroTxn/InitTxn/v3/
-                    //var json = wc.DownloadString("https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v1/?key=4AAE3948E90F96C3EEEC40E904FD97BB&ticket=14000000BA8E5C0C96BD396425937F03010010018E00E5591800000001000000020000004C3858C52001A8C04F2B08010A000000B2000000320000000400000025937F030100100182130B004C3858C52001A8C000000000D7C1E4595771005A0100EA3903000000000033639BF8CD5218905BE524EB74BDD1D821DCEAF6E0791DD70145E7AD4A4560171ED256DBC687A08728B8D949EBCD3433198B8031E4E973178910565FF95839D43B2AF21FACEACC112E3629B0821A931ACED8B6F6DF0E1FAACADD15D21ADC47F8A219D5760EE5642293A0924DCEBE83B8C27A51DFE667BC9040E3D151F49B3B015C84DE01242262B8748F043EB0FD329DC870757ECACDF28B166C514C2BB5A8CCB85384C90365397BFA2F7E9B4BCA2841762E435BB6BFC206102B055A0B2B12EE9366FB1797A54693630D6C0FD6A6AA29AFC0ABB53006DEBFA24A50C8102EBB8AB450E0D91A1221F6B131BC0DC940CCB86EC973654FECCAA7BBDA7C3541B8C977A4BFFD8FE5ACA57C165E62280D8B7C95F745A7811D9DE061C07FCFD37218F74BDF8AF8C99DCC83F6B96BA7EC7DD97D180A3729C4D955F50BB8CBFD31F6AAA92B86187E30AF112A380AB9107DECD265E9DA984402241F5D8C62997D06C4B2018BCA13DE75EFA9737291CEA649573A070C024D45F7E74E68861987EDCB6C0A07DC163C8C3AC92B36825ED95C1F326EE4A20E10CFD2CC0D297360ACD12CEA48BE8DCC0160B172EDD00CC4A3F1F1F582DDF5CFDCFE95B4102F2039C8AE40C86B43E23969BC7F06136377256C860D45FB56BEAA61356DEF09F412DB5999008D3A15FB33DE6EEAA1917C37071131E9C64324C9294771E287799274E6ED659D084C208551C212640862AD7E6A2FCC04C3A177B35AD88906D5B885A0476CFE9EEA747274E92943FC4B911CE5F72C247224E559C2387BF11755E52A536BA89C88974CF184D48EA2E9340796CDBFF1B8D5DA7F48B475E21CC94C273A5601920522786327C2B7C1F7A1320E31E122F78E418939AC3CD4D84486CAB485DE4061FD456C146D8CD8273B1D38547A41FDE1D107B9C284DC8CA08244C3A72CF97909D4B1A72E904927A2F20E4120D246F816E66AFB85D0BC723B6617F15BA88B13EBE17BE976D69FAEAFD5F7EB898DE05C8CE710C8847A0C361C39EB0B7338CE37B9CAFCFA4181C930E9855D44B2B9042B626B4E1CDAD8F68E5E17443DF31D7ECABA960C976F42E8FB1C4D80B6635FA4CE0514E01A9233C8B12B4E9A799509C6943E5543F4F0E2282DFAC0658DAE3CB2BAA7342CA9C468CB7B736D0624BB83FBC647A1D1FD4D6040A3A6ABA4148FC6CEAD263DA4DC765FB384D567A2396777227B3CDD204E2626477F754C67BA2BE4AD4473CD90CF9A1CB29754650000000000000000000000000000000000000000000000000000000000000000000000&appid=725890");
+                   
 
 
-
-                    //var json = wc.DownloadString("https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v1/?key=4AAE3948E90F96C3EEEC40E904FD97BB&ticket=" + steamTicket + "&appid=725890");
-                    //json = json.Replace("params", "params1");
-                    //json = json.Replace("\t", " ");
-                    //json = json.Replace("  ", " ");
-
-                    ////  Newtonsoft.Json.JsonConvert.
-                    //// response account = JsonConvert.DeserializeObject<response>(json);
-
-                    //IsOK2 = json.ToLower().Replace(" ", "").Contains("\"result\":\"ok\"");
-                    //if (IsOK2)
-                    //{
-                    //    if (json.ToLower().Contains(userID))
-                    //    {
-                    //        IsOK2 = true;
-                    //    }
-                    //    else
-                    //    {
-                    //        IsOK2 = false;
-                    //    }
-                    //}
+                    
                 }
             }
             if (platform == xActionRequest.EnumGamePlatformType.UWSPC)
@@ -420,15 +342,12 @@ namespace RobotServ
                 using (WebClient wc = new WebClient())
                 {
 
-                    //var json = wc.DownloadString("https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v1/?key=4AAE3948E90F96C3EEEC40E904FD97BB&ticket=14000000BA8E5C0C96BD396425937F03010010018E00E5591800000001000000020000004C3858C52001A8C04F2B08010A000000B2000000320000000400000025937F030100100182130B004C3858C52001A8C000000000D7C1E4595771005A0100EA3903000000000033639BF8CD5218905BE524EB74BDD1D821DCEAF6E0791DD70145E7AD4A4560171ED256DBC687A08728B8D949EBCD3433198B8031E4E973178910565FF95839D43B2AF21FACEACC112E3629B0821A931ACED8B6F6DF0E1FAACADD15D21ADC47F8A219D5760EE5642293A0924DCEBE83B8C27A51DFE667BC9040E3D151F49B3B015C84DE01242262B8748F043EB0FD329DC870757ECACDF28B166C514C2BB5A8CCB85384C90365397BFA2F7E9B4BCA2841762E435BB6BFC206102B055A0B2B12EE9366FB1797A54693630D6C0FD6A6AA29AFC0ABB53006DEBFA24A50C8102EBB8AB450E0D91A1221F6B131BC0DC940CCB86EC973654FECCAA7BBDA7C3541B8C977A4BFFD8FE5ACA57C165E62280D8B7C95F745A7811D9DE061C07FCFD37218F74BDF8AF8C99DCC83F6B96BA7EC7DD97D180A3729C4D955F50BB8CBFD31F6AAA92B86187E30AF112A380AB9107DECD265E9DA984402241F5D8C62997D06C4B2018BCA13DE75EFA9737291CEA649573A070C024D45F7E74E68861987EDCB6C0A07DC163C8C3AC92B36825ED95C1F326EE4A20E10CFD2CC0D297360ACD12CEA48BE8DCC0160B172EDD00CC4A3F1F1F582DDF5CFDCFE95B4102F2039C8AE40C86B43E23969BC7F06136377256C860D45FB56BEAA61356DEF09F412DB5999008D3A15FB33DE6EEAA1917C37071131E9C64324C9294771E287799274E6ED659D084C208551C212640862AD7E6A2FCC04C3A177B35AD88906D5B885A0476CFE9EEA747274E92943FC4B911CE5F72C247224E559C2387BF11755E52A536BA89C88974CF184D48EA2E9340796CDBFF1B8D5DA7F48B475E21CC94C273A5601920522786327C2B7C1F7A1320E31E122F78E418939AC3CD4D84486CAB485DE4061FD456C146D8CD8273B1D38547A41FDE1D107B9C284DC8CA08244C3A72CF97909D4B1A72E904927A2F20E4120D246F816E66AFB85D0BC723B6617F15BA88B13EBE17BE976D69FAEAFD5F7EB898DE05C8CE710C8847A0C361C39EB0B7338CE37B9CAFCFA4181C930E9855D44B2B9042B626B4E1CDAD8F68E5E17443DF31D7ECABA960C976F42E8FB1C4D80B6635FA4CE0514E01A9233C8B12B4E9A799509C6943E5543F4F0E2282DFAC0658DAE3CB2BAA7342CA9C468CB7B736D0624BB83FBC647A1D1FD4D6040A3A6ABA4148FC6CEAD263DA4DC765FB384D567A2396777227B3CDD204E2626477F754C67BA2BE4AD4473CD90CF9A1CB29754650000000000000000000000000000000000000000000000000000000000000000000000&appid=725890");
-                    var json = wc.DownloadString("https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v1/?key=4AAE3948E90F96C3EEEC40E904FD97BB&ticket=" + steamTicket + "&appid=725890");
+                    var json = wc.DownloadString("https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v1/?key="+"[removed]" + "&ticket=" + steamTicket + "&appid=725890");
                     json = json.Replace("params", "params1");
                     json = json.Replace("\t", " ");
                     json = json.Replace("  ", " ");
 
-                    //  Newtonsoft.Json.JsonConvert.
-                    // response account = JsonConvert.DeserializeObject<response>(json);
-
+               
                     IsOK2 = json.ToLower().Replace(" ", "").Contains("\"result\":\"ok\"");
                     if (IsOK2)
                     {
@@ -547,11 +466,7 @@ namespace RobotServ
         public xHint RandomHint;
         public List<xNews> LatestNews;
         public decimal RoI;
-        //public xCommerceClient TheClient;
-        //public List<xCategory> AllCatergories;
-        //public List<xProduct> AllProducts;
-        //public List<xArticle> AllArticles;       
-
+     
         public static string SerializeToText(XData aProject)
         {
             string FileContent;
