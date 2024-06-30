@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9b0fa6d3d52ccb542a0b090b621c2881
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Air Travelers Personal Use
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3ae563e1a53bb9b4eb14a3251ca898fe, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
