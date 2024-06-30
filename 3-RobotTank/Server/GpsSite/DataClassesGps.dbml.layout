@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 13.125" name="DataClassesGps">
+  <DataContextMoniker Name="/DataClassesGpsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="911e06b6-1067-45a4-a751-0b73c9613526" absoluteBounds="0.75, 0.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/Company" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac3befef-af91-4c12-b78e-943397e08465" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e584b919-8979-490f-b433-71d01b39199a" absoluteBounds="3.75, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/UserInvoiceProduct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63732401-58ff-4522-bc21-ada7050feb60" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0541a02-1d4e-472c-b1c2-6430cc1307ac" absoluteBounds="3.75, 3.75, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/CompanyCustomer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f2375bd-6286-4ea1-8cbc-ec643617af19" absoluteBounds="3.765, 4.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aaf00f10-50a9-4d33-a835-8dbea1eb2a32" absoluteBounds="6.75, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/DeviceRoutePoint" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ec3c808-7dcc-434f-a783-6c30f70218d0" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd881781-9fd0-4c1b-83d2-1416ca6e37c5" absoluteBounds="6.75, 3.75, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/GpsDevice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a49318d-c270-46cf-82c0-a26ac83ff24b" absoluteBounds="6.765, 4.21, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1120d5a9-d680-4001-a40b-1a8f8630ada6" absoluteBounds="0.75, 7.75, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/GpsTrack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4dc06f30-9459-47d9-804f-becd38d466db" absoluteBounds="0.765, 8.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80d0f5cf-2204-48fb-9456-b2b8a359f57e" absoluteBounds="9.75, 0.75, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/MobileUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ab61abb-8ab7-4e26-8adf-eaecafcf75ff" absoluteBounds="9.765, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="163d63db-75b2-47b8-96ed-357a8291df87" absoluteBounds="3.75, 9.75, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7df93c08-3f56-4271-a504-9ffd21e61a91" absoluteBounds="3.765, 10.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="09e712bd-5473-4b93-b8ba-a6faac99b375" absoluteBounds="9.75, 4.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/RobotCommand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4d5c7f7-a663-41f6-8c99-c75aa5c43e0d" absoluteBounds="9.765, 5.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f7dad8c-0b45-43e9-90f4-e5a6618d98d7" absoluteBounds="6.75, 9.75, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/DataClassesGpsDataContext/UserInvoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ec7f7ae-1cec-4278-807e-ac320f453abc" absoluteBounds="6.765, 10.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

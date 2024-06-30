@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GpsDatabase" Class="DataClassesGpsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\GpsDatabase.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="GpsDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Company" Member="Companies">
+    <Type Name="Company">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyDescription" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLon" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(550) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserInvoiceProduct" Member="UserInvoiceProducts">
+    <Type Name="UserInvoiceProduct">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Product" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PricePerUnitAtTime" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitsOrdered" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalCost" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompanyCustomer" Member="CompanyCustomers">
+    <Type Name="CompanyCustomer">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectName" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactPerson" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(2050) NOT NULL" CanBeNull="false" />
+      <Column Name="GpsLat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="GpsLon" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerNotes" Type="System.String" DbType="NVarChar(3050) NOT NULL" CanBeNull="false" />
+      <Column Name="NotificationPhoneList" Type="System.String" DbType="NVarChar(2050) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerCompanyName" Type="System.String" DbType="NVarChar(550) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DeviceRoutePoint" Member="DeviceRoutePoints">
+    <Type Name="DeviceRoutePoint">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Device" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="OrderIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PointX" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PointY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationX" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GpsDevice" Member="GpsDevices">
+    <Type Name="GpsDevice">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeviceID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Lon" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Lat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="EntryUtcDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationLon" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationLat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="HasReachedDestination" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DateDestinationReached" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateDestinationSet" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FollowerList" Type="System.String" DbType="NVarChar(3050) NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationAddress" Type="System.String" DbType="NVarChar(3050) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentSpeedKmph" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentDistanceToDestinationKM" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(550) NOT NULL" CanBeNull="false" />
+      <Column Name="OTP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_CompanyCustomerAssigned" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PersonName" Type="System.String" DbType="NVarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="EstimatedTrackLength" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GpsTrack" Member="GpsTracks">
+    <Type Name="GpsTrack">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeviceID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Lon" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Lat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="EntryUtcDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentSpeedKmphFromLastPoint" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentDistanceToDestinationKM" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MobileUser" Member="MobileUsers">
+    <Type Name="MobileUser">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="WorksiteGPSLon" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="WorksiteGPSLat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentGPSLon" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentGPSLat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(550) NOT NULL" CanBeNull="false" />
+      <Column Name="OTP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="PricingType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PricingUnits" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PricePerUnit" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="MinUnits" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MaxUnits" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RobotCommand" Member="RobotCommands">
+    <Type Name="RobotCommand">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeviceID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TestCommandToSend" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessPassword" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TestDataReceived" Type="System.String" DbType="NVarChar(3000) NOT NULL" CanBeNull="false" />
+      <Column Name="LastRequestDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserInvoice" Member="UserInvoices">
+    <Type Name="UserInvoice">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_MobileUser" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsComplete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationGPSLon" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationGPSLat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationAddress" Type="System.String" DbType="NVarChar(1050) NOT NULL" CanBeNull="false" />
+      <Column Name="IsPaid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CostWithoutTransport" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TransportCost" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
