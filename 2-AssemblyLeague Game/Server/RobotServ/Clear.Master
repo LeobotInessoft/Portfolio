@@ -1,0 +1,343 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Clear.master.cs" Inherits="RobotServ.Clear" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Assembly League - Robot Building, Metal Smashing, Skull Cracking Battle Simulation</title>
+
+<!-- Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="gaming, assembly, coding, robot,ai, x86, unity">
+<meta name="desription" content="Robot Building, Metal Smashing, Skull Cracking Battle Simulation. ">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Meta-Tags -->
+
+<!-- Custom-Stylesheet-Links -->
+<!-- Bootstrap-CSS -->	  <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css" media="all">
+<!-- Index-Page-CSS -->	  <link rel="stylesheet" href="css/style.css"		   type="text/css" media="all">
+<!-- Owl-Carousel-CSS --> <link rel="stylesheet" href="css/owl.carousel.css"   type="text/css" media="all">
+<!-- Chocolat-CSS -->	  <link rel="stylesheet" href="css/chocolat.css"	   type="text/css" media="all">
+<!-- Animate-CSS -->	  <link rel="stylesheet" href="css/animate-custom.css" type="text/css" media="all">
+<!-- //Custom-Stylesheet-Links -->
+
+<!-- Fonts -->
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700"	   type="text/css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500" type="text/css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Press+Start+2P"		   type="text/css" media="all">
+<!-- //Fonts -->
+
+<!-- Font-Awesome-File-Links -->
+<!-- CSS --> <link rel="stylesheet" href="css/font-awesome.min.css" 	 type="text/css" media="all">
+<!-- TTF --> <link rel="stylesheet" href="fonts/fontawesome-webfont.ttf" type="text/css" media="all">
+<!-- //Font-Awesome-File-Links -->
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107343899-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments) };
+    gtag('js', new Date());
+
+    gtag('config', 'UA-107343899-1');
+</script>
+
+     <form id="form1" runat="server">
+    
+
+
+
+	<!-- Header -->
+	<div class="agileheader" id="agileitshome">
+
+		<!-- Navigation -->
+		<div class="w3lsnavigation">
+			<nav class="navbar navbar-inverse agilehover-effect wthreeeffect navbar-default">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Logo -->
+					<div class="logo">
+						<a class="navbar-brand logo-w3l button" href="http://assemblyleague.com">ASSEMBLY LEAGUE</a>
+					</div>
+					<!-- //Logo -->
+				</div>
+
+				<div id="navbar" class="navbar-collapse navbar-right collapse">
+					<ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
+						<li><a  href="Download.aspx">Download</a></li>
+						<li><a  href="Forum.aspx">Forum</a></li>
+						<li><a  href="Tutorials.aspx">Tutorials</a></li>
+							   <asp:Literal ID="LiteralLogin" runat="server"></asp:Literal>
+						<%--<li><a class="scroll" href="#agileinfoplatforms">DOWNLOAD</a></li>--%>
+						<%--<li><a class="scroll" href="#wthreetabsaits">ROBOTS</a></li>--%>
+						<%--<li><a class="scroll" href="#wthreeblogsaits">BLOG</a></li>--%>
+						<%--<li><a class="scroll" href="#w3portfolioaits">PORTFOLIO</a></li>--%>
+						<%--<li><a class="scroll" href="#agilecontactw3ls">CONTACT</a></li>--%>
+						<%--<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
+							<div class="dropdown-menu">
+								<form action="#" method="post">
+									<div id="login" class="animate w3loginagile form">
+										<h3>Login</h3>
+										<input type="text" Name="Userame" placeholder="Username" required="">
+										<input type="password" Name="Password" placeholder="Password" required="">
+										<div class="send-button wthree agileits">
+											<input type="submit" value="Login">
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</form>
+								<form action="#" method="post">
+									<div id="register" class="animate w3registeragile form">
+										<h3>Sign Up</h3>
+										<input type="text" Name="Name" placeholder="Name" required="">
+										<input type="text" Name="Email" placeholder="Email" required="">
+										<input type="password" Name="Password" placeholder="Password" required="">
+										<input type="text" Name="Phone Number" placeholder="Phone Number" required="">
+										<div class="send-button wthree agileits">
+											<input type="submit" value="Sign Up">
+										</div>
+									</div>
+								</form>
+							</div>
+						</li>--%>
+					</ul>
+				</div><!-- //Navbar-Collapse -->
+
+			</nav>
+		</div>
+		<!-- //Navigation -->
+
+		<!-- Slider -->
+		<%--<div class="slider">
+			<ul class="rslides" id="slider">
+				<li class="first-slide w3ls">
+					<img src="images/slide-1.jpg" alt="ROBOCRAFT">
+					<div class="heading">
+						<h1>ASSEMBLY LEAGUE</h1>
+						<h2>Killer Robot Battleground</h2>
+						<h3>Coming Soon...</h3>
+					</div>
+				</li>
+				<li class="second-slide aits">
+					<img src="images/slide-2.jpg" alt="Game Robo">
+				</li>
+				<li class="third-slide w3-agileits">
+					<img src="images/slide-3.jpg" alt="Game Robo">
+				</li>
+				<li class="fourth-slide agileinfo">
+					<img src="images/slide-4.jpg" alt="Game Robo">
+				</li>
+				<li class="fifth-slide wthree">
+					<img src="images/slide-5.jpg" alt="Game Robo">
+				</li>
+			</ul>
+		</div>--%>
+		<!-- //Slider -->
+
+	</div>
+	<!-- //Header -->
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+	
+
+
+	<!-- Newsletter -->
+	<%--<div class="w3lsnewsletter" id="w3lsnewsletter">
+		<div class="container">
+			<div class="w3lsnewsletter-grids">
+				<div class="col-md-5 w3lsnewsletter-grid w3lsnewsletter-grid-1 subscribe">
+					<p>Subscribe to our Newsletter</p>
+				</div>
+				<div class="col-md-7 w3lsnewsletter-grid w3lsnewsletter-grid-2 email-form">
+					<form action="#" method="post">
+						<input class="email" type="email" name="Email" placeholder="Email Address" required="">
+						<input type="submit" class="submit" value="SUBSCRIBE">
+					</form>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>--%>
+	<!-- //Newsletter -->
+
+
+
+	<!-- Contact -->
+	<%--<div class="agilecontactw3ls" id="agilecontactw3ls">
+		<div class="container">
+			<h3>Write to Us</h3>
+			<form action="#" method="post">
+				<div class="col-md-6 agilecontactw3ls-grid agilecontactw3ls-grid-1">
+					<input type="text" Name="First Name" placeholder="FIRST NAME" required="">
+					<input type="text" Name="Last Name" placeholder="LAST NAME" required="">
+					<input type="email" Name="Email" placeholder="EMAIL" required="">
+				</div>
+				<div class="col-md-6 agilecontactw3ls-grid agilecontactw3ls-grid-2">
+					<textarea name="Message" placeholder="MESSAGE" required=""></textarea>
+					<div class="send-button">
+						<input type="submit" value="SEND">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>--%>
+	<!-- //Contact -->
+
+
+
+	<!-- Footer -->
+	<div class="agilefooterwthree" id="agilefooterwthree">
+		<div class="container">
+
+			<div class="agilefooterwthree-grids">
+                <asp:Literal ID="LiteralBottomMenu" runat="server"></asp:Literal>
+				
+
+				<div class="col-md-3 agilefooterwthree-grid agilefooterwthree-grid4">
+					<h4>CONTACT</h4>
+					<address>
+						<ul>
+							<li>9 Moore Street</li>
+							<li>Walmer</li>
+							<li>Port Elizabeth</li>
+							<li>South Africa</li>
+							<li>+27 (82) 822 3489</li>
+						       <li><a class="mail" href="mailto:info@inessoft.com">info@inessoft.com</a></li>
+						<li><a class="mail" href="http://inessoft.com">inessoft.com</a></li>
+					 	</ul>
+					</address>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="agilefooterwthreebottom">
+				<div class="col-md-6 agilefooterwthreebottom-grid agilefooterwthreebottom-grid1">
+					<div class="copyright">
+						<p>© 2017 INESSOFT. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="=_blank"> W3layouts </a> | <a href="Terms.aspx">Terms & Conditions</a></p>
+					</div>
+				</div>
+				<div class="col-md-6 agilefooterwthreebottom-grid agilefooterwthreebottom-grid2">
+					<div class="agilesocialwthree">
+						<ul class="social-icons">
+							<li><a href="#" class="facebook w3ls" title="Go to Our Facebook Page"><i class="fa w3ls fa-facebook-square" aria-hidden="true"></i></a></li>
+							<li><a href="http://twitter.com/inessoftza" class="twitter w3l" title="Go to Our Twitter Account"><i class="fa w3l fa-twitter-square" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="googleplus w3" title="Go to Our Google Plus Account"><i class="fa w3 fa-google-plus-square" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="instagram wthree" title="Go to Our Instagram Account"><i class="fa wthree fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="youtube w3layouts" title="Go to Our Youtube Channel"><i class="fa w3layouts fa-youtube-square" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<a href="#agileitshome" class="agileto-top scroll" title="To Top"><img src="images/to-top.png" alt="Game Robo"></a>
+
+	</div>
+	<!-- //Footer -->
+
+
+
+	<!-- Custom-JavaScript-File-Links -->
+
+		<!-- Default-JavaScript -->   <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<!-- Bootstrap-JavaScript --> <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<!-- Resopnsive-Slider-JavaScript -->
+			<script src="js/responsiveslides.min.js"></script>
+			<script>
+				$(function () {
+					$("#slider").responsiveSlides({
+						auto: true,
+						nav: true,
+						speed: 2000,
+						namespace: "callbacks",
+						pager: true,
+					});
+				});
+			</script>
+		<!-- //Resopnsive-Slider-JavaScript -->
+
+		<!-- Tab-JavaScript -->
+			<script src="js/cbpFWTabs.js"></script>
+			<script>
+			    (function () {
+			        [ ].slice.call(document.querySelectorAll('.tabs')).forEach(function (el) {
+			            new CBPFWTabs(el);
+			        });
+			    })();
+			</script>
+		<!-- //Tab-JavaScript -->
+
+		<!-- Owl-Carousel-JavaScript -->
+			<script src="js/owl.carousel.js"></script>
+			<script>
+			    $(document).ready(function () {
+			        $("#owl-demo, #owl-demo1, #owl-demo2, #owl-demo3, #owl-demo4").owlCarousel({
+			            autoPlay: 3000,
+			            items: 5,
+			            itemsDesktop: [1024, 4],
+			            itemsDesktopSmall: [414, 3]
+			        });
+			    });
+			</script>
+		<!-- //Owl-Carousel-JavaScript -->
+
+		<!-- Stats-Number-Scroller-Animation-JavaScript -->
+			<script src="js/waypoints.min.js"></script> 
+			<script src="js/counterup.min.js"></script> 
+			<script>
+			    jQuery(document).ready(function ($) {
+			        $('.counter').counterUp({
+			            delay: 10,
+			            time: 1000
+			        });
+			    });
+			</script>
+		<!-- //Stats-Number-Scroller-Animation-JavaScript -->
+
+		<!-- Popup-Box-JavaScript -->
+			<script src="js/jquery.chocolat.js"></script>
+			<script type="text/javascript">
+			    $(function () {
+			        $('.w3portfolioaits-item a').Chocolat();
+			    });
+			</script>
+		<!-- //Popup-Box-JavaScript -->
+
+		<!-- Smooth-Scrolling-JavaScript -->
+			<script type="text/javascript">
+			    jQuery(document).ready(function ($) {
+			        $(".scroll").click(function (event) {
+			            event.preventDefault();
+			            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			        });
+			    });
+			</script>
+		<!-- //Smooth-Scrolling-JavaScript -->
+
+	<!-- //Custom-JavaScript-File-Links -->
+
+
+    
+        
+  
+    </form>
+</body>
+</html>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GameInterface.aspx.cs" Inherits="RobotServ.GameInterface" %>

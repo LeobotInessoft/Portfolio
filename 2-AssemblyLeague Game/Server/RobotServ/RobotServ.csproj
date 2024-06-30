@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A00CA212-466B-486D-B4DF-03C848979976}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RobotServ</RootNamespace>
+    <AssemblyName>RobotServ</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK.Core">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\AWS SDK for .NET\bin\Net35\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Polly">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\AWS SDK for .NET\bin\Net35\AWSSDK.Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.16.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="paypal_base">
+      <HintPath>..\paypal_base.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Zlib.Portable, Version=1.9.1.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zlib.Portable.1.9.2\lib\portable-net4+sl4+wp71+win8\Zlib.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddFunds.aspx" />
+    <Content Include="App_Data\DatabaseRobot.mdf" />
+    <Content Include="App_Data\DatabaseRobot_log.ldf">
+      <DependentUpon>DatabaseRobot.mdf</DependentUpon>
+    </Content>
+    <Content Include="CreateTut.aspx" />
+    <Content Include="css\animate-custom.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\chocolat.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Download.aspx" />
+    <Content Include="EmptyTest.aspx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Forum.aspx" />
+    <Content Include="GameInterface.aspx" />
+    <Content Include="GameService.asmx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\about.jpg" />
+    <Content Include="images\best-1.jpg" />
+    <Content Include="images\best-10.jpg" />
+    <Content Include="images\best-2.jpg" />
+    <Content Include="images\best-3.jpg" />
+    <Content Include="images\best-4.jpg" />
+    <Content Include="images\best-5.jpg" />
+    <Content Include="images\best-6.jpg" />
+    <Content Include="images\best-7.jpg" />
+    <Content Include="images\best-8.jpg" />
+    <Content Include="images\best-9.jpg" />
+    <Content Include="images\blog-1.jpg" />
+    <Content Include="images\blog-2.jpg" />
+    <Content Include="images\blog-3.jpg" />
+    <Content Include="images\blog-4.jpg" />
+    <Content Include="images\close.png" />
+    <Content Include="images\editor-1.jpg" />
+    <Content Include="images\editor-10.jpg" />
+    <Content Include="images\editor-2.jpg" />
+    <Content Include="images\editor-3.jpg" />
+    <Content Include="images\editor-4.jpg" />
+    <Content Include="images\editor-5.jpg" />
+    <Content Include="images\editor-6.jpg" />
+    <Content Include="images\editor-7.jpg" />
+    <Content Include="images\editor-8.jpg" />
+    <Content Include="images\editor-9.jpg" />
+    <Content Include="images\left.png" />
+    <Content Include="images\new-1.jpg" />
+    <Content Include="images\new-10.jpg" />
+    <Content Include="images\new-2.jpg" />
+    <Content Include="images\new-3.jpg" />
+    <Content Include="images\new-4.jpg" />
+    <Content Include="images\new-5.jpg" />
+    <Content Include="images\new-6.jpg" />
+    <Content Include="images\new-7.jpg" />
+    <Content Include="images\new-8.jpg" />
+    <Content Include="images\new-9.jpg" />
+    <Content Include="images\partner-1.jpg" />
+    <Content Include="images\partner-10.jpg" />
+    <Content Include="images\partner-11.jpg" />
+    <Content Include="images\partner-12.jpg" />
+    <Content Include="images\partner-13.jpg" />
+    <Content Include="images\partner-14.jpg" />
+    <Content Include="images\partner-15.jpg" />
+    <Content Include="images\partner-16.jpg" />
+    <Content Include="images\partner-17.jpg" />
+    <Content Include="images\partner-18.jpg" />
+    <Content Include="images\partner-19.jpg" />
+    <Content Include="images\partner-2.jpg" />
+    <Content Include="images\partner-20.jpg" />
+    <Content Include="images\partner-3.jpg" />
+    <Content Include="images\partner-4.jpg" />
+    <Content Include="images\partner-5.jpg" />
+    <Content Include="images\partner-6.jpg" />
+    <Content Include="images\partner-7.jpg" />
+    <Content Include="images\partner-8.jpg" />
+    <Content Include="images\partner-9.jpg" />
+    <Content Include="images\platform-1-icon.png" />
+    <Content Include="images\platform-1.jpg" />
+    <Content Include="images\platform-2-icon.png" />
+    <Content Include="images\platform-2.jpg" />
+    <Content Include="images\platform-3-icon.png" />
+    <Content Include="images\platform-3.jpg" />
+    <Content Include="images\platform-4-icon.png" />
+    <Content Include="images\platform-4.jpg" />
+    <Content Include="images\popular-1.jpg" />
+    <Content Include="images\popular-10.jpg" />
+    <Content Include="images\popular-2.jpg" />
+    <Content Include="images\popular-3.jpg" />
+    <Content Include="images\popular-4.jpg" />
+    <Content Include="images\popular-5.jpg" />
+    <Content Include="images\popular-6.jpg" />
+    <Content Include="images\popular-7.jpg" />
+    <Content Include="images\popular-8.jpg" />
+    <Content Include="images\popular-9.jpg" />
+    <Content Include="images\right.png" />
+    <Content Include="images\slide-1.jpg" />
+    <Content Include="images\slide-2.jpg" />
+    <Content Include="images\slide-3.jpg" />
+    <Content Include="images\slide-4.jpg" />
+    <Content Include="images\slide-5.jpg" />
+    <Content Include="images\star.png" />
+    <Content Include="images\star1.png" />
+    <Content Include="images\stats-1.png" />
+    <Content Include="images\stats-2.png" />
+    <Content Include="images\stats-3.png" />
+    <Content Include="images\stats-4.png" />
+    <Content Include="images\stats.jpg" />
+    <Content Include="images\tabs-bg.jpg" />
+    <Content Include="images\themes.gif" />
+    <Content Include="images\to-top.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\cbpFWTabs.js" />
+    <Content Include="js\counterup.min.js" />
+    <Content Include="js\jquery-2.1.4.min.js" />
+    <Content Include="js\jquery.chocolat.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\responsiveslides.min.js" />
+    <Content Include="js\waypoints.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="PaypalConfirm.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="StartThread.aspx" />
+    <Content Include="Terms.aspx" />
+    <Content Include="Thread.aspx" />
+    <Content Include="Tutorial.aspx" />
+    <Content Include="Tutorials.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddFunds.aspx.cs">
+      <DependentUpon>AddFunds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddFunds.aspx.designer.cs">
+      <DependentUpon>AddFunds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClassRobotDB.cs" />
+    <Compile Include="ClassThreadDB.cs" />
+    <Compile Include="ClassTTS.cs" />
+    <Compile Include="Clear.Master.cs">
+      <DependentUpon>Clear.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clear.Master.designer.cs">
+      <DependentUpon>Clear.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTut.aspx.cs">
+      <DependentUpon>CreateTut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateTut.aspx.designer.cs">
+      <DependentUpon>CreateTut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataClassesInterface.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClassesInterface.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Download.aspx.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Download.aspx.designer.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmptyTest.aspx.cs">
+      <DependentUpon>EmptyTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmptyTest.aspx.designer.cs">
+      <DependentUpon>EmptyTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forum.aspx.cs">
+      <DependentUpon>Forum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forum.aspx.designer.cs">
+      <DependentUpon>Forum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GameInterface.aspx.cs">
+      <DependentUpon>GameInterface.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GameInterface.aspx.designer.cs">
+      <DependentUpon>GameInterface.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GameService.asmx.cs">
+      <DependentUpon>GameService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaypalConfirm.aspx.cs">
+      <DependentUpon>PaypalConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaypalConfirm.aspx.designer.cs">
+      <DependentUpon>PaypalConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StartThread.aspx.cs">
+      <DependentUpon>StartThread.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StartThread.aspx.designer.cs">
+      <DependentUpon>StartThread.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Terms.aspx.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Terms.aspx.designer.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Thread.aspx.cs">
+      <DependentUpon>Thread.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Thread.aspx.designer.cs">
+      <DependentUpon>Thread.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorial.aspx.cs">
+      <DependentUpon>Tutorial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial.aspx.designer.cs">
+      <DependentUpon>Tutorial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorials.aspx.cs">
+      <DependentUpon>Tutorials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorials.aspx.designer.cs">
+      <DependentUpon>Tutorials.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Clear.Master" />
+    <None Include="DataClassesInterface.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClassesInterface.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Site.Master" />
+    <None Include="fonts\fontawesome-webfont.eot" />
+    <None Include="fonts\fontawesome-webfont.ttf" />
+    <None Include="fonts\fontawesome-webfont.woff" />
+    <None Include="fonts\fontawesome-webfont.woff2" />
+    <None Include="fonts\FontAwesome.otf" />
+    <None Include="images\Thumbs.db" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataClassesInterface.dbml.layout">
+      <DependentUpon>DataClassesInterface.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bundles\Arena\" />
+    <Folder Include="Robots\" />
+    <Folder Include="TTS\ComponentDescriptions\" />
+    <Folder Include="TTS\ComponentNames\" />
+    <Folder Include="TTS\MatchIntro\" />
+    <Folder Include="TTS\PlayerNames\" />
+    <Folder Include="TTS\RobotNames\" />
+    <Folder Include="Windows\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55775</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
